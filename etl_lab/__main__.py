@@ -31,6 +31,7 @@ def main():
             print(generate(args.directory, args.sources, args.rows))
             return 0
         if args.command == "ingest":
+            args.database.parent.mkdir(parents=True, exist_ok=True)
             result = ingest(
                 read_manifest(args.manifest),
                 args.database,
