@@ -17,7 +17,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - run: python -m pip install --upgrade pip pytest ruff
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e ".[test]"
       - run: ruff check .
       - run: pytest -q
       - name: 24-source generated benchmark smoke test
